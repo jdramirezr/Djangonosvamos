@@ -1,0 +1,53 @@
+.div-form {
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.div-form .lines  {
+    width: 100%;
+}
+
+.btn-primary {
+    display: flex;
+    justify-content: center;
+}
+
+
+.js-trip-list {
+    margin: 0px 25%;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+}
+
+.buttons {
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .div-form {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .div-form .lines  {
+        width: 100%;
+    }
+
+    .btn-primary {
+        display: flex;
+        justify-content: center;
+    }
+
+    .js-trip-list {
+        margin: 0px 20px;
+    }
+}

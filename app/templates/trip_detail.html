@@ -1,0 +1,15 @@
+{% load static %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <h1>detalle de viaje {{ object }}</h1>
+    <b>Fecha de viaje:</b> {{ object.travel_date }} <br>
+    <b>Cupos:</b> {{ object.quotas }} <br>
+    <b>Conductor:</b> {{ object.driver }} <br>
+    <b>Ciudad de origen:</b> {{ object.get_city_from_display }} <br>
+    <b>Ciudad de destino:</b> {{ object.get_city_to_display }} <br>
+    <hr>
+  </head>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <h1>Crear usuario</h1>
+    <div class="buttons">
+        <a href="login.html">Iniciar sesión</a> |
+        <a href="post_trip.html">Crear un viaje</a> |
+        <a href="create.html">Crear un usuario</a> |
+        <a href="index.html">Buscar un viaje</a>
+    </div>
+    <br>
+    <form action="" class="input-group-prepend js-login-form" method="post" data-url="http://f02cfacf.ngrok.io/create/">
+        <div class="div-form input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Usuario</span>
+            <input class="lines js-username" name="username" type="text" required><br>
+            <br>
+            <span class="input-group-text" id="basic-addon1">Contraseña</span>
+            <input class="lines js-password1" name="password1" type="password" required><br>
+            <br>
+            <span class="input-group-text" id="basic-addon1">Repite la contraseña</span>
+            <input class="lines js-password2" name="password2" type="password" required><br>
+            <br>
+            <div class="btn btn-primary lines js-create-user">crear usuario</div>
+        </div>
+    </form>
+    <hr>
+  </head>
+  <div class="js-message"></div>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="main.js"></script>

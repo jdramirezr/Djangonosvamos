@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <h1>Listado de viajes disponibles</h1>
+    {% for trip in trip_list %}
+        <b>Fecha de viaje:</b> {{ trip.travel_date }} <br>
+        <b>Cupos:</b> {{ trip.quotas }} <br>
+        <b>Conductor:</b> {{ trip.driver }} <br>
+        <b>Ciudad de origen:</b> {{ trip.get_city_from_display }} <br>
+        <b>Ciudad de destino:</b> {{ trip.get_city_to_display }} <br>
+        <a href="{% url 'trip_detail' trip.id %}">ver detalle</a>
+        <hr>
+    {% endfor %}
+  </head>
+</html>
