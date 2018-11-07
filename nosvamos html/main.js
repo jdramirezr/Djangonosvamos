@@ -2,9 +2,25 @@ function go_login(){
     $(location).attr('href', 'index.html')
 }
 
+function ajax_func(that) {
+    $.ajax({
+        url: that.data('url'),
+        type: that.attr('method'),
+        data: that.serialize(),
+        success(data) {
+            if(!data.ok) {
+                $('.js-message').html('<div class="lines error">' + data.response + '</div>');
+            } else {
+                $('.js-message').html('<div class="message">' + data.response + '</div>');
+                $('.loader').fadeIn('slow');
+                setTimeout(go_login, 4000);
+            }
+        },
+    });
+}
 
 $('.js-send').on('click', function () {
-    let that = $('.js-contact-form');
+    var that = $('.js-contact-form');
     $.ajax({
         url: that.data('url'),
         type: that.attr('method'),
@@ -27,7 +43,7 @@ $('.js-send').on('click', function () {
                     );
 
                 });
-                $('.js-trip-list').html(text_data);
+                $('.js-trip-list').hide().html(text_data).fadeIn('slow');
             }
         },
     });
@@ -35,29 +51,17 @@ $('.js-send').on('click', function () {
 
 
 $('.js-login').on('click', function () {
-    let that = $('.js-login-form');
+    var that = $('.js-login-form');
     if ($('.js-username').val() == '' ||$('.js-password').val() == '' ) {
-        $('.js-login-message').html('<div class="lines error">Debe ingresar los datos solicitados</div>')
+        $('.js-message').html('<div class="lines error">Debe ingresar los datos solicitados</div>')
         return false
     }
-    $.ajax({
-        url: that.data('url'),
-        type: that.attr('method'),
-        data: that.serialize(),
-        success(data) {
-            if(!data.ok) {
-                $('.js-login-message').html('<div class="lines error">' + data.response + '</div>');
-            } else {
-                $('.js-login-message').html('<div class="message">' + data.response + '</div>');
-                setTimeout(go_login, 4000);
-            }
-        },
-    });
+    ajax_func(that);
 });
 
 
 $('.js-create-user').on('click', function () {
-    let that = $('.js-login-form');
+    var that = $('.js-login-form');
     if ($('.js-username').val() == '' || $('.js-password1').val() == '' || $('.js-password2').val() == '') {
         $('.js-message').html('<div class="lines error">Debe ingresar los datos solicitados</div>')
         return false
@@ -68,24 +72,12 @@ $('.js-create-user').on('click', function () {
         return false
     }
 
-    $.ajax({
-        url: that.data('url'),
-        type: that.attr('method'),
-        data: that.serialize(),
-        success(data) {
-            if(!data.ok) {
-                $('.js-message').html('<div class="lines error">' + data.response + '</div>');
-            } else {
-                $('.js-message').html('<div class="message">' + data.response + '</div>');
-                setTimeout(go_login, 4000);
-            }
-        },
-    });
+    ajax_func(that);
 });
 
 
 $('.js-post').on('click', function () {
-    let that = $('.js-trip-form');
+    var that = $('.js-trip-form');
     if (
         $('.js-date').val() == '' ||
         $('.js-from').val() == '' ||
@@ -96,17 +88,5 @@ $('.js-post').on('click', function () {
         return false
     }
 
-    $.ajax({
-        url: that.data('url'),
-        type: that.attr('method'),
-        data: that.serialize(),
-        success(data) {
-            if(!data.ok) {
-                $('.js-message').html('<div class="lines error">' + data.response + '</div>');
-            } else {
-                $('.js-message').html('<div class="message">' + data.response + '</div>');
-                setTimeout(go_login, 4000);
-            }
-        },
-    });
+    ajax_func(that);
 });

@@ -19,7 +19,7 @@
         <a href="index.html">Buscar un viaje</a>
     </div>
     <br>
-    <form action="" class="input-group-prepend js-contact-form" method="post" data-url="http://f02cfacf.ngrok.io/listado-viajes/">
+    <form action="" class="input-group-prepend js-contact-form" method="post" data-url="http://localhost:8000/listado-viajes/">
         <div class="div-form input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Date</span>
             <input class="lines form-control js-date" name="travel_date" type="date">
@@ -88,6 +88,9 @@
     </form>
     <hr>
     <div class="js-trip-list"></div>
+    <div class='loader-box'>
+        <div class="loader"></div>
+    </div>
   </head>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
