@@ -83,7 +83,7 @@ class LoginView(ListView):
             return JsonResponse({
                 'ok': True,
                 'user_id': user.id,
-                'response': 'logueado correctamente, redirigiendo....',
+                'response': 'logueado correctamente, redirigiendo',
             })
 
         return JsonResponse({
