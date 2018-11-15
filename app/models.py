@@ -35,7 +35,7 @@ class Client(AbstractBaseUser):
 
     user = models.OneToOneField(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
 
     name = models.CharField(
@@ -58,7 +58,6 @@ class Client(AbstractBaseUser):
         if self.is_driver:
             return f'conductor - {self.name}'
         return f'pasajero - {self.name}'
-
 
     class Meta:
         verbose_name = 'cliente'
@@ -103,7 +102,7 @@ class Trip(models.Model):
     driver = models.ForeignKey(
         'app.Client',
         verbose_name='conductor',
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
 
     city_from = models.PositiveSmallIntegerField(
@@ -114,6 +113,12 @@ class Trip(models.Model):
     city_to = models.PositiveSmallIntegerField(
         choices=CITY_CHOICES,
         verbose_name='ciudad de destino',
+    )
+
+    price = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
+        verbose_name='precio',
     )
 
     def __str__(self):
@@ -132,13 +137,13 @@ class Reservation(models.Model):
     trip = models.ForeignKey(
         'app.Trip',
         verbose_name='viaje',
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
 
     user = models.ForeignKey(
         'app.Client',
         verbose_name='usuario',
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
 
     requested_quotas = models.PositiveSmallIntegerField(

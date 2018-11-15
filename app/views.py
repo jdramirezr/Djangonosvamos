@@ -12,6 +12,7 @@ from django.http import JsonResponse
 
 from app.models import Trip
 from app.models import User
+from app.models import Client
 # Create your views here.
 
 
@@ -56,6 +57,7 @@ class TripListView(ListView):
                 'driver_id': trip.driver_id,
                 'quotas': trip.quotas,
                 'travel_date': trip.travel_date.date(),
+                'price': trip.price,
             })
 
         return JsonResponse({
@@ -110,6 +112,12 @@ class CreateView(View):
             user.set_password(password)
             user.save()
 
+            Client.objects.create(
+                user=user,
+                name=username,
+                email=user.email,
+                is_driver=False
+            )
             return JsonResponse({
                 'ok': True,
                 'response': 'usuario creado correctamente, redirigiendo....',
@@ -127,19 +135,26 @@ class PostTripView(View):
 
     @csrf_exempt
     def post(self, request, *args, **kwargs):
-
         travel_date = request.POST.get('travel_date', '')
         city_from = request.POST.get('city_from', '')
         city_to = request.POST.get('city_to', '')
         quotas = request.POST.get('quotas', '')
-
-        if travel_date and city_from and city_to and quotas:
+        trip_price = request.POST.get('trip-price', '')
+        if (
+            travel_date and
+            city_from and
+            city_to and
+            quotas and
+            trip_price and
+            trip_price.isdigit()
+        ):
             Trip.objects.create(
                 travel_date=travel_date,
-                driver_id=User.objects.order_by('?').first().id,
+                driver_id=Client.objects.order_by('?').first().id,
                 city_from=city_from,
                 city_to=city_to,
                 quotas=quotas,
+                price=int(trip_price),
             )
 
             return JsonResponse({
@@ -148,6 +163,6 @@ class PostTripView(View):
             })
 
         return JsonResponse({
-            'ok': True,
-            'response': 'No se ha creado el viaje',
+            'ok': False,
+            'response': 'No se ha creado el viaje, revisa el precio',
         })
