@@ -33,7 +33,10 @@ class UserManager(BaseUserManager):
 class Client(AbstractBaseUser):
     USERNAME_FIELD = 'email'
 
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE
+    )
 
     name = models.CharField(
         verbose_name='nombre',
@@ -99,7 +102,8 @@ class Trip(models.Model):
 
     driver = models.ForeignKey(
         'app.Client',
-        verbose_name='conductor'
+        verbose_name='conductor',
+        on_delete=models.CASCADE
     )
 
     city_from = models.PositiveSmallIntegerField(
@@ -128,11 +132,13 @@ class Reservation(models.Model):
     trip = models.ForeignKey(
         'app.Trip',
         verbose_name='viaje',
+        on_delete=models.CASCADE
     )
 
     user = models.ForeignKey(
         'app.Client',
         verbose_name='usuario',
+        on_delete=models.CASCADE
     )
 
     requested_quotas = models.PositiveSmallIntegerField(

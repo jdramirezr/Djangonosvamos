@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import url
+from django.urls import path
 from django.conf.urls.static import static
 from django.contrib import admin
 
@@ -10,31 +10,31 @@ from app.views import CreateView
 from app.views import PostTripView
 
 urlpatterns = [
-    url(
-        r'^listado-viajes/$',
+    path(
+        'listado-viajes/',
         TripListView.as_view(),
         name='trip_list'
     ),
-    url(
-        r'^login/$',
+    path(
+        'login/',
         LoginView.as_view(),
         name='login'
     ),
-    url(
-        r'^create/$',
+    path(
+        'create/',
         CreateView.as_view(),
         name='create'
     ),
-    url(
-        r'^post_trip/$',
+    path(
+        'post_trip/',
         PostTripView.as_view(),
         name='post_trip'
     ),
 
-    url(
-        r'^detalle-viaje/(?P<pk>[0-9a-zA-Z]+)/$',
+    path(
+        'detalle-viaje/<int:pk>/',
         TripDetailview.as_view(),
         name='trip_detail'
     ),
-    url(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
