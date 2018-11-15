@@ -1,3 +1,21 @@
+h4 {
+    text-align: center;
+}
+@font-face {
+    font-family: Rich;
+    src: url(Rich.ttf);
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #83909e;
+    text-decoration: unset;
+    font-weight: 400;
+}
+
 .div-form {
     display: inline-block;
     margin: 0 auto;
@@ -28,8 +46,16 @@
 }
 
 .buttons {
-    padding: 10px 0px 0px 0px;
+    background-color: #0f2d4e;
+    color: white;
+    padding: 20px 20px;
     text-align: center;
+    border-top: solid;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+.js-trip-list {
+    padding-bottom: 100px;
 }
 
 .loader-box {
@@ -37,10 +63,20 @@
     left: 50%;
 }
 
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #a7d0fd;
+    height: 20px;
+    padding-bottom: 30px;
+}
+
 .loader {
     display: none;
     position: relative;
-    left: -50%;    
+    left: -50%;
     border: 16px solid #f3f3f3;
     border-top: 16px solid #3498db;
     border-radius: 50%;
@@ -56,6 +92,44 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.header {
+    background-color:#0f2e4e;
+    color: white;
+    padding: 20px;
+    height: 70px;
+}
+
+.first-title {
+    font-family: Rich;
+    text-align: left;
+    display: inline-block;
+    float: left;
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.js-message {
+    margin-bottom: 230px;
+}
+
+.input-group-prepend {
+    margin-top: 20px;
+}
+
+.create-link {
+    color: #0f2e4e;
+
+    text-decoration: underline;
+}
+.create-link-a {
+    text-align: center;
+}
+
+.create-link:hover {
+    color: #0f2e4e;
+    text-align: center;
 }
 
 @media (max-width: 600px) {

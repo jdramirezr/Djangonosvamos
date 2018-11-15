@@ -22,6 +22,7 @@ class TripAdmin(admin.ModelAdmin):
         'driver',
         'city_from',
         'city_to',
+        'price',
     )
 
 

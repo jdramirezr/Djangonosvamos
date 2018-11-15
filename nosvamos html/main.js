@@ -31,7 +31,6 @@ $('.js-send').on('click', function () {
                     $(`<label class="lines js-field-error error"></label>`).text(errors.join('\n')).insertAfter($(`.js-${name}`));
                 });
             } else {
-                console.log('ok');
                 var text_data = '';
 
                 $.each( data.response , function( k, v ) {
@@ -39,7 +38,8 @@ $('.js-send').on('click', function () {
                         '<b>Fecha de viaje</b>: ' + v.travel_date + '<br>' +
                         '<b>Ciudad de salida</b>: ' + v.city_from + '<br>' +
                         '<b>Ciudad de llegada</b>: ' + v.city_to + '<br>' +
-                        '<b>Cupos disponibles</b>: ' + v.quotas + '<br><hr>'
+                        '<b>Cupos disponibles</b>: ' + v.quotas + '<br>' +
+                        '<b>Precio</b>: ' + v.price + '<br><hr>'
                     );
 
                 });
@@ -53,17 +53,16 @@ $('.js-send').on('click', function () {
 $('.js-login').on('click', function () {
     var that = $('.js-login-form');
     if ($('.js-username').val() == '' ||$('.js-password').val() == '' ) {
-        $('.js-message').html('<div class="lines error">Debe ingresar los datos solicitados</div>')
+        $('.js-message').html('<div class="lines error">Debes ingresar los datos solicitados</div>')
         return false
     }
     ajax_func(that);
 });
 
-
 $('.js-create-user').on('click', function () {
     var that = $('.js-login-form');
     if ($('.js-username').val() == '' || $('.js-password1').val() == '' || $('.js-password2').val() == '') {
-        $('.js-message').html('<div class="lines error">Debe ingresar los datos solicitados</div>')
+        $('.js-message').html('<div class="lines error">Debes ingresar los datos solicitados</div>')
         return false
     }
 
@@ -82,9 +81,10 @@ $('.js-post').on('click', function () {
         $('.js-date').val() == '' ||
         $('.js-from').val() == '' ||
         $('.js-to').val() == '' ||
+        $('.js-trip-price').val() == '' ||
         $('.js-places').val() == ''
     ) {
-        $('.js-message').html('<div class="lines error">Debe ingresar los datos solicitados</div>')
+        $('.js-message').html('<div class="lines error">Debes ingresar los datos solicitados</div>')
         return false
     }
 
