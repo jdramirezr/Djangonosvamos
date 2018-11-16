@@ -110,6 +110,7 @@ class CreateView(View):
 
         if user and create:
             user.set_password(password)
+            user.email = f'{username}@demo.com'
             user.save()
 
             Client.objects.create(
