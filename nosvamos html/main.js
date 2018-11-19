@@ -35,11 +35,12 @@ $('.js-send').on('click', function () {
 
                 $.each( data.response , function( k, v ) {
                     text_data += (
-                        '<b>Fecha de viaje</b>: ' + v.travel_date + '<br>' +
+                        '<div class="city-list city-text"><b>Fecha de viaje</b>: ' + v.travel_date + '<br>' +
                         '<b>Ciudad de salida</b>: ' + v.city_from + '<br>' +
                         '<b>Ciudad de llegada</b>: ' + v.city_to + '<br>' +
                         '<b>Cupos disponibles</b>: ' + v.quotas + '<br>' +
-                        '<b>Precio</b>: ' + v.price + '<br><hr>'
+                        '<b>Precio</b>: ' + v.price + '<br></div>' +
+                        '<div class="city-list"><b>Foto</b>: ' + '<img src=' + v.image + '><br></div><hr>'
                     );
 
                 });

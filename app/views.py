@@ -58,6 +58,7 @@ class TripListView(ListView):
                 'quotas': trip.quotas,
                 'travel_date': trip.travel_date.date(),
                 'price': trip.price,
+                'image': 'https://picsum.photos/300/300/?random',
             })
 
         return JsonResponse({

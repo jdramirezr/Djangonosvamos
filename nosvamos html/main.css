@@ -1,3 +1,7 @@
+body {
+    background-color: #a8a9ad78;
+}
+
 h4 {
     text-align: center;
 }
@@ -29,6 +33,8 @@ a:hover {
 .btn-primary {
     display: flex;
     justify-content: center;
+    background-color: #0d2c4f;
+    border-color: #0d2c4f;
 }
 
 
@@ -68,9 +74,10 @@ footer {
     bottom: 0px;
     width: 100%;
     text-align: center;
-    background-color: #a7d0fd;
+    background-color: #0d2c4f;
     height: 20px;
     padding-bottom: 30px;
+    color: white;
 }
 
 .loader {
@@ -132,6 +139,15 @@ footer {
     text-align: center;
 }
 
+.city-list {
+    display: inline-block;
+}
+
+.city-text {
+    vertical-align: middle;
+    width: 330px;
+}
+
 @media (max-width: 600px) {
     .div-form {
         display: inline-block;
@@ -145,6 +161,8 @@ footer {
     .btn-primary {
         display: flex;
         justify-content: center;
+        border-color: #0d2c4f;
+        border-color: #0d2c4f;
     }
 
     .js-trip-list {
