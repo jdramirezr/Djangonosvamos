@@ -8,11 +8,18 @@ Instalar python
 
 ## Paso 2
 
+
 ```
-pip install -r requirements.txt 
+source venv/bin/activate
 ```
 
 ## Paso 3
+
+```
+pip install -r requirements.txt
+```
+
+## Paso 4
 
 Poner a andar esta perola
 ```
